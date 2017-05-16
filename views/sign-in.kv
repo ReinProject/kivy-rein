@@ -1,0 +1,27 @@
+BoxLayout:
+	orientation: 'vertical'
+
+	canvas:
+        Color:
+            rgba: 255, 255, 255, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+		text: 'Please enter the delegate private key associated with one of your Rein identities.'
+		color: 211, 211, 211, 1
+
+    BoxLayout:
+    	orientation: 'horizontal'
+
+    	Label:
+    		text: 'Private key: '
+    		color: 211, 211, 211, 1
+
+    	TextInput:
+    		multiline: False
+    		text: 'Delegate private key'
+
+    	Button:
+    		text: 'Import identity'
