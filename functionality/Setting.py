@@ -1,3 +1,5 @@
+"""Provides functionality for saving and reading settings from the local db"""
+
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 

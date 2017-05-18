@@ -1,10 +1,13 @@
 from kivy.app import App
 from kivy.lang import Builder
 
+from functionality.Database import Database
 from functionality.Setting import Setting
 
 class ReinAndroidApp(App):
     def build(self):
+    	Database()
+
     	if not Setting.read('delprivkey'):
         	view = Builder.load_file('views\sign-in.kv')
 
