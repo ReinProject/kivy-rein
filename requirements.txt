@@ -6,6 +6,7 @@ Kivy-Garden==0.1.4
 kivy.deps.glew==0.1.9
 kivy.deps.sdl2==0.1.17
 packaging==16.8
+pybitcointools==1.1.15
 pygame==1.9.3
 Pygments==2.2.0
 pyparsing==2.2.0
