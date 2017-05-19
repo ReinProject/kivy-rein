@@ -1,6 +1,47 @@
+#:import queries functionality.queries
+
+<Row@BoxLayout>:
+    canvas.before:
+        Color:
+            rgba: 0.5, 0.5, 0.5, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    value: ''
+    Label:
+        text: root.value
+
+
 <MainScreen>:
-	GridLayout:
-	    cols: 1
-	    
-	    Label:
-	        text: "Welcome to Rein for Android!"
+    BoxLayout:
+        orientation: 'vertical'
+
+        canvas:
+            Color:
+                rgba: 255, 255, 255, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Welcome to Rein!'
+            color: 211, 211, 211, 1
+
+        Label:
+            text: 'Your active jobs:'
+            color: 211, 211, 211, 1
+
+        RecycleView:
+            id: rv
+            data: [{'value': item} for item in queries.get_active_jobs(1)]
+            scroll_type: ['bars', 'content']
+            scroll_wheel_distance: dp(114)
+            bar_width: dp(10)
+            viewclass: 'Row'
+            RecycleBoxLayout:
+                default_size: None, dp(56)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+                spacing: dp(2)

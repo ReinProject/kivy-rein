@@ -22,4 +22,8 @@ def does_user_exist(delprivkey):
 			return True
 
 	return False
-	
+
+def get_active_jobs(delprivkey):
+	"""Gets all active jobs a user is involved in"""
+
+	return ['Job {}'.format(i) for i in range(100)]
