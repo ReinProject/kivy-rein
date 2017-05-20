@@ -38,3 +38,19 @@ def get_active_jobs(delprivkey):
 					previous_job_names.append(job['name'])
 
 	return active_jobs
+
+def get_open_jobs():
+	"""Gets all open jobs"""
+
+	open_jobs = []
+	previous_job_names = []
+	for server in KNOWN_SERVERS:
+		response = requests.get('http://{}/jobs/open'.format(server)).json()
+		if 'message' not in response:
+			for job in response:
+				# Avoid adding two copies of the same job from different servers
+				if job['name'] not in previous_job_names:
+					open_jobs.append(job)
+					previous_job_names.append(job['name'])
+
+	return open_jobs
