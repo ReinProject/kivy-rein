@@ -1,4 +1,5 @@
 #:import queries functionality.queries
+#:import Setting functionality.Setting.Setting
 
 <Row@BoxLayout>:
     canvas.before:
@@ -33,7 +34,7 @@
 
         RecycleView:
             id: rv
-            data: [{'value': item} for item in queries.get_active_jobs(1)]
+            data: [{'value': item['name']} for item in queries.get_active_jobs(Setting.read('delprivkey'))]
             scroll_type: ['bars', 'content']
             scroll_wheel_distance: dp(114)
             bar_width: dp(10)

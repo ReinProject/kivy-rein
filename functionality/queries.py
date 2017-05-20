@@ -17,7 +17,6 @@ def does_user_exist(delprivkey):
 		
 	for server in KNOWN_SERVERS:
 		response = requests.get('http://{}/users/exists/{}'.format(server, delegate_address)).text
-		print(response)
 		if response == 'True':
 			return True
 
@@ -26,4 +25,16 @@ def does_user_exist(delprivkey):
 def get_active_jobs(delprivkey):
 	"""Gets all active jobs a user is involved in"""
 
-	return ['Job {}'.format(i) for i in range(100)]
+	active_jobs = []
+	previous_job_names = []
+	delegate_public_key = pybitcointools.privtopub(delprivkey)
+	for server in KNOWN_SERVERS:
+		response = requests.get('http://{}/users/by_pubkey/{}/jobs/active'.format(server, delegate_public_key)).json()
+		if 'message' not in response:
+			for job in response:
+				# Avoid adding two copies of the same job from different servers
+				if job['name'] not in previous_job_names:
+					active_jobs.append(job)
+					previous_job_names.append(job['name'])
+
+	return active_jobs
