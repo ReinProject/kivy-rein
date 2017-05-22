@@ -11,16 +11,21 @@ class MainScreen(Screen):
 class SignInScreen(Screen):
     pass
 
+class JobScreen(Screen):
+    pass
+
 class ReinAndroidApp(App):
     def build(self):
     	Database()
 
         Builder.load_file('views\SignInScreen.kv')
         Builder.load_file('views\MainScreen.kv')
+        Builder.load_file('views\JobScreen.kv')
 
         self.sm = ScreenManager()
         self.sm.add_widget(SignInScreen(name='SignInScreen'))        
         self.sm.add_widget(MainScreen(name='MainScreen'))
+        self.sm.add_widget(JobScreen(name='JobScreen'))
 
         if Setting.read('delprivkey'):
             self.sm.current = 'MainScreen'

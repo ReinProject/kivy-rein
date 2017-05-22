@@ -1,7 +1,5 @@
 """Provides functionality for the sign-in view"""
 
-from kivy.lang import Builder
-
 from functionality.Setting import Setting
 from functionality.queries import does_user_exist
 

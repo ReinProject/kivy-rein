@@ -1,0 +1,39 @@
+<JobScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        canvas:
+            Color:
+                rgba: 255, 255, 255, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Label:
+                text: 'Job name: '
+                color: 211, 211, 211, 1
+
+            Label:
+                id: job_name
+                text: ''
+                color: 211, 211, 211, 1
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Label:
+                text: 'Job status: '
+                color: 211, 211, 211, 1
+
+            Label:
+                id: job_status
+                text: ''
+                color: 211, 211, 211, 1
+
+        Button:
+            text: 'Go back'
+            on_press:
+                app.sm.current = 'MainScreen'

@@ -12,6 +12,12 @@
     Label:
         text: root.value
 
+    Button:
+        text: 'View status'
+        on_press:
+            from functionality.main_screen import view_active_job
+            view_active_job(root.job, app.sm)
+
 
 <MainScreen>:
     BoxLayout:
@@ -34,7 +40,7 @@
 
         RecycleView:
             id: rv_active
-            data: [{'value': item['name']} for item in queries.get_active_jobs(Setting.read('delprivkey'))]
+            data: [{'value': item['name'], 'job': item} for item in queries.get_active_jobs(Setting.read('delprivkey'))]
             scroll_type: ['bars', 'content']
             scroll_wheel_distance: dp(114)
             bar_width: dp(10)
