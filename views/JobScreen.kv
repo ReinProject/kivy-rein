@@ -1,5 +1,6 @@
 <JobScreen>:
     BoxLayout:
+        padding: [30, 30, 30, 30]
         orientation: 'vertical'
 
         canvas:
@@ -18,6 +19,8 @@
 
             Label:
                 id: job_name
+                text_size: self.width, None
+                halign: 'left'
                 text: ''
                 color: 211, 211, 211, 1
 
@@ -30,6 +33,8 @@
 
             Label:
                 id: job_status
+                text_size: self.width, None
+                halign: 'left'
                 text: ''
                 color: 211, 211, 211, 1
 

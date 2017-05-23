@@ -1,6 +1,25 @@
 #:import queries functionality.queries
 #:import Setting functionality.Setting.Setting
 
+<ActiveJobRow@BoxLayout>:
+    canvas.before:
+        Color:
+            rgba: 0.5, 0.5, 0.5, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    value: ''
+    Label:
+        text: root.value
+
+    Button:
+        size_hint: (0.5, 1)
+        text: 'View status'
+        on_press:
+            from functionality.main_screen import view_active_job
+            view_active_job(root.job, app.sm)
+
 <Row@BoxLayout>:
     canvas.before:
         Color:
@@ -12,15 +31,9 @@
     Label:
         text: root.value
 
-    Button:
-        text: 'View status'
-        on_press:
-            from functionality.main_screen import view_active_job
-            view_active_job(root.job, app.sm)
-
-
 <MainScreen>:
     BoxLayout:
+        padding: [30, 30, 30, 30]
         orientation: 'vertical'
 
         canvas:
@@ -31,12 +44,15 @@
                 size: self.size
 
         Label:
-            text: 'Welcome to Rein!'
+            text: '[b]Welcome to Rein![/b]'
             color: 211, 211, 211, 1
+            markup: True
+            size_hint_y: 0.5
 
         Label:
             text: 'Your active jobs:'
             color: 211, 211, 211, 1
+            size_hint_y: 0.5
 
         RecycleView:
             id: rv_active
@@ -44,7 +60,7 @@
             scroll_type: ['bars', 'content']
             scroll_wheel_distance: dp(114)
             bar_width: dp(10)
-            viewclass: 'Row'
+            viewclass: 'ActiveJobRow'
             RecycleBoxLayout:
                 default_size: None, dp(56)
                 default_size_hint: 1, None
@@ -56,6 +72,7 @@
         Label:
             text: 'Available jobs:'
             color: 211, 211, 211, 1
+            size_hint_y: 0.5
 
         RecycleView:
             id: rv_open
