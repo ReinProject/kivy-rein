@@ -4,6 +4,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 from functionality.Database import Database
 from functionality.Setting import Setting
+from functionality.main_screen import set_user_job_data
 
 class MainScreen(Screen):
     pass
@@ -18,6 +19,10 @@ class ReinAndroidApp(App):
     def build(self):
     	Database()
 
+        Builder.load_file('views\CustomLabel.kv')
+        Builder.load_file('views\CustomButton.kv')
+        Builder.load_file('views\CustomInput.kv')
+        Builder.load_file('views\CustomHeader.kv')
         Builder.load_file('views\SignInScreen.kv')
         Builder.load_file('views\MainScreen.kv')
         Builder.load_file('views\JobScreen.kv')
@@ -29,6 +34,7 @@ class ReinAndroidApp(App):
 
         if Setting.read('delprivkey'):
             self.sm.current = 'MainScreen'
+            set_user_job_data(self.sm)
 
     	return self.sm
 

@@ -2,6 +2,7 @@
 
 from functionality.Setting import Setting
 from functionality.queries import does_user_exist
+from functionality.main_screen import set_user_job_data
 
 def import_identity(delprivkey, feedback_label, screen_manager):
 	if not delprivkey or len(delprivkey) < 40:
@@ -12,6 +13,7 @@ def import_identity(delprivkey, feedback_label, screen_manager):
 		if does_user_exist(delprivkey):
 			Setting.make('delprivkey', delprivkey)
 			screen_manager.current = 'MainScreen'
+			set_user_job_data(screen_manager)
 
 		else:
 			feedback_label.text = 'The key you have entered is not ' \

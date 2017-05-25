@@ -10,23 +10,20 @@
                 pos: self.pos
                 size: self.size
 
-        Label:
+        CustomHeader:
     		text: 'Please enter a delegate private key associated with one of your Rein identities.'
-    		color: 211, 211, 211, 1
 
         BoxLayout:
         	orientation: 'horizontal'
 
-        	Label:
+        	CustomLabel:
         		text: 'Private key: '
-        		color: 211, 211, 211, 1
 
-        	TextInput:
+        	CustomInput:
         		id: delprivkey
-        		multiline: False
         		hint_text: 'Delegate private key'
 
-        	Button:
+        	CustomButton:
         		text: 'Import identity'
         		on_press:
         			from functionality.sign_in import import_identity
@@ -35,6 +32,5 @@
         BoxLayout:
         	orientation: 'horizontal'
 
-        	Label:
+        	CustomLabel:
         		id: identity_feedback
-        		color: 211, 211, 211, 1
