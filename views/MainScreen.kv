@@ -2,20 +2,9 @@
 #:import Setting functionality.Setting.Setting
 
 <ActiveJobRow@BoxLayout>:
-    canvas.before:
-        Color:
-            rgba: 0.5, 0.5, 0.5, 1
-        Rectangle:
-            size: self.size
-            pos: self.pos
-
     value: ''
-    Label:
-        text: root.value
-
     Button:
-        size_hint: (0.5, 1)
-        text: 'View status'
+        text: root.value
         on_press:
             from functionality.main_screen import view_active_job
             view_active_job(root.job, app.sm)
@@ -32,27 +21,12 @@
         text: root.value
 
 <MainScreen>:
-    BoxLayout:
-        padding: [30, 30, 30, 30]
-        orientation: 'vertical'
+    CustomBackground:
+        CustomHeader:
+            text: 'Welcome to Rein!'
 
-        canvas:
-            Color:
-                rgba: 255, 255, 255, 1
-            Rectangle:
-                pos: self.pos
-                size: self.size
-
-        Label:
-            text: '[b]Welcome to Rein![/b]'
-            color: 211, 211, 211, 1
-            markup: True
-            size_hint_y: 0.5
-
-        Label:
+        CustomLabel:
             text: 'Your active jobs:'
-            color: 211, 211, 211, 1
-            size_hint_y: 0.5
 
         RecycleView:
             id: rv_active
@@ -69,10 +43,8 @@
                 orientation: 'vertical'
                 spacing: dp(2)
 
-        Label:
+        CustomLabel:
             text: 'Available jobs:'
-            color: 211, 211, 211, 1
-            size_hint_y: 0.5
 
         RecycleView:
             id: rv_open

@@ -23,6 +23,7 @@ class ReinAndroidApp(App):
         Builder.load_file('views\CustomButton.kv')
         Builder.load_file('views\CustomInput.kv')
         Builder.load_file('views\CustomHeader.kv')
+        Builder.load_file('views\CustomBackground.kv')
         Builder.load_file('views\SignInScreen.kv')
         Builder.load_file('views\MainScreen.kv')
         Builder.load_file('views\JobScreen.kv')

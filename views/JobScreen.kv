@@ -1,44 +1,32 @@
 <JobScreen>:
-    BoxLayout:
-        padding: [30, 30, 30, 30]
-        orientation: 'vertical'
-
-        canvas:
-            Color:
-                rgba: 255, 255, 255, 1
-            Rectangle:
-                pos: self.pos
-                size: self.size
-
+    CustomBackground:
         BoxLayout:
+            size_hint_y: None
+            height: "24pt"
             orientation: 'horizontal'
 
-            Label:
+            CustomLabel:
                 text: 'Job name: '
-                color: 211, 211, 211, 1
 
-            Label:
+            CustomLabel:
                 id: job_name
-                text_size: self.width, None
                 halign: 'left'
                 text: ''
-                color: 211, 211, 211, 1
 
         BoxLayout:
+            size_hint_y: None
+            height: "24pt"
             orientation: 'horizontal'
 
-            Label:
+            CustomLabel:
                 text: 'Job status: '
-                color: 211, 211, 211, 1
 
-            Label:
+            CustomLabel:
                 id: job_status
-                text_size: self.width, None
                 halign: 'left'
                 text: ''
-                color: 211, 211, 211, 1
 
-        Button:
+        CustomButton:
             text: 'Go back'
             on_press:
                 app.sm.current = 'MainScreen'
