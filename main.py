@@ -19,14 +19,14 @@ class ReinAndroidApp(App):
     def build(self):
     	Database()
 
-        Builder.load_file('views\CustomLabel.kv')
-        Builder.load_file('views\CustomButton.kv')
-        Builder.load_file('views\CustomInput.kv')
-        Builder.load_file('views\CustomHeader.kv')
-        Builder.load_file('views\CustomBackground.kv')
-        Builder.load_file('views\SignInScreen.kv')
-        Builder.load_file('views\MainScreen.kv')
-        Builder.load_file('views\JobScreen.kv')
+        Builder.load_file('views/CustomLabel.kv')
+        Builder.load_file('views/CustomButton.kv')
+        Builder.load_file('views/CustomInput.kv')
+        Builder.load_file('views/CustomHeader.kv')
+        Builder.load_file('views/CustomBackground.kv')
+        Builder.load_file('views/SignInScreen.kv')
+        Builder.load_file('views/MainScreen.kv')
+        Builder.load_file('views/JobScreen.kv')
 
         self.sm = ScreenManager()
         self.sm.add_widget(SignInScreen(name='SignInScreen'))        

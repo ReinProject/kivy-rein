@@ -4,10 +4,10 @@
 title = Rein
 
 # (str) Package name
-package.name = android-rein
+package.name = rein
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.rein-project
+package.domain = org.rein_project
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma seperated e.g. requirements = sqlite3,kivy
-requirements = kivy,hostpython2
+requirements = kivy,hostpython2,sqlite3,pybitcointools
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -85,7 +85,7 @@ fullscreen = 0
 #android.presplash_color = #FFFFFF
 
 # (list) Permissions
-#android.permissions = INTERNET
+android.permissions = INTERNET
 
 # (int) Android API to use
 #android.api = 19
@@ -115,13 +115,13 @@ fullscreen = 0
 #android.p4a_dir =
 
 # (str) The directory in which python-for-android should look for your own build recipes (if any)
-#p4a.local_recipes =
+#p4a.local_recipes = 
 
 # (str) Filename to the hook for p4a
 #p4a.hook =
 
 # (list) python-for-android whitelist
-#android.p4a_whitelist =
+#android.p4a_whitelist = 
 
 # (bool) If True, then skip trying to update the Android sdk
 # This can be useful to avoid excess Internet downloads or save time
