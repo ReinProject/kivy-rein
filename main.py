@@ -17,8 +17,6 @@ class JobScreen(Screen):
 
 class ReinAndroidApp(App):
     def build(self):
-    	Database()
-
         Builder.load_file('views/CustomLabel.kv')
         Builder.load_file('views/CustomButton.kv')
         Builder.load_file('views/CustomInput.kv')
