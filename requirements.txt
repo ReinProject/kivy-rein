@@ -14,4 +14,5 @@ pyparsing==2.2.0
 requests==2.14.2
 sh==1.12.13
 six==1.10.0
+SQLAlchemy==1.1.10
 urllib3==1.21.1

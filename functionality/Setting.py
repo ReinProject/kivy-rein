@@ -1,36 +1,44 @@
-"""Provides functionality for saving and reading settings from the local db"""
+"""Provides the setting model and functionality for saving and reading settings"""
 
-from functionality.Database import DATABASE
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String
 
-class Setting():
-	@staticmethod
-	def make(setting_name, setting_value):
-		"""Inserts a setting into the database or updates it if the setting has been set"""
+from functionality.Database import Database
 
-		if Setting.read(setting_name):
-			t = (setting_value,setting_name,)
-			DATABASE.cursor.execute('''UPDATE settings
-				SET setting_value = ?
-				WHERE setting_name = ?''', t)
+BASE = declarative_base()
+DATABASE = Database()
 
-		else:
-			t = (setting_name, setting_value,)
-			DATABASE.cursor.execute('''INSERT INTO settings
-				(setting_name, setting_value)
-				VALUES(?, ?)''', t)
+class Setting(BASE):
+    """Provides the setting model and functionality for saving and reading settings"""
 
-		DATABASE.connection.commit()
+    __tablename__ = 'settings'
+    setting_id = Column(Integer, primary_key=True)
+    setting_name = Column(String)
+    setting_value = Column(String)
 
-	@staticmethod
-	def read(setting_name):
-		"""Returns a setting's value or None if that setting has not been set"""
+    @staticmethod
+    def make(setting_name, setting_value):
+        """Adds a new setting to the database or updates an existing setting"""
 
-		t = (setting_name,)
-		DATABASE.cursor.execute('''SELECT setting_value 
-			FROM settings 
-			WHERE setting_name = ?''', t)
-		result = DATABASE.cursor.fetchone()
-		if result:
-			return result[0]
+        setting_in_db = DATABASE.session.query(Setting).filter(Setting.setting_name == setting_name).first()
+        if not setting_in_db:
+            setting = Setting()
+            setting.setting_name = setting_name
+            setting.setting_value = setting_value
+            DATABASE.session.add(setting)
 
-		return None
+        else:
+            setting_in_db.setting_value = setting_value
+
+        DATABASE.session.commit()
+
+    @staticmethod
+    def read(setting_name):
+        """Reads a setting's value from the database"""
+
+        setting_in_db = DATABASE.session.query(Setting).filter(Setting.setting_name == setting_name).first()
+        if not setting_in_db:
+            return None
+
+        return setting_in_db.setting_value
+
