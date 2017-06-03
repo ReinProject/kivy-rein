@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma seperated e.g. requirements = sqlite3,kivy
-requirements = kivy,hostpython2,sqlite3,pybitcointools
+requirements = kivy,python2,sqlite3,pybitcointools,requests
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -121,7 +121,7 @@ android.permissions = INTERNET
 #p4a.hook =
 
 # (list) python-for-android whitelist
-#android.p4a_whitelist = 
+android.p4a_whitelist = encodings/cp1252.pyo,sqlite3/*,lib-dynload/_sqlite3.so
 
 # (bool) If True, then skip trying to update the Android sdk
 # This can be useful to avoid excess Internet downloads or save time
