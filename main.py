@@ -2,6 +2,8 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+import requests
+
 from functionality.Database import Database
 from functionality.Setting import Setting
 from functionality.main_screen import set_user_job_data
