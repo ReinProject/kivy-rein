@@ -44,7 +44,7 @@ class ReinAndroidApp(App):
         server_available = False
         for server in KNOWN_SERVERS:
             try:
-                response = requests.get('http://{}'.format(server))
+                response = requests.get('http://{}'.format(server), timeout=1)
                 server_available = True
 
             except:

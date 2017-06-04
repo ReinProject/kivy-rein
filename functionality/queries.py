@@ -17,7 +17,7 @@ def does_user_exist(delprivkey):
         
     for server in KNOWN_SERVERS:
         try:
-            response = requests.get('http://{}/users/exists/{}'.format(server, delegate_address)).text
+            response = requests.get('http://{}/users/exists/{}'.format(server, delegate_address), timeout=1).text
             if response == 'True':
                 return True
 
@@ -34,7 +34,7 @@ def get_active_jobs(delprivkey):
     delegate_public_key = pybitcointools.privtopub(delprivkey)
     for server in KNOWN_SERVERS:
         try:
-            response = requests.get('http://{}/users/by_pubkey/{}/jobs/active'.format(server, delegate_public_key)).json()
+            response = requests.get('http://{}/users/by_pubkey/{}/jobs/active'.format(server, delegate_public_key), timeout=1).json()
             if 'message' not in response:
                 for job in response:
                     # Avoid adding two copies of the same job from different servers
@@ -54,7 +54,7 @@ def get_open_jobs():
     previous_job_names = []
     for server in KNOWN_SERVERS:
         try:
-            response = requests.get('http://{}/jobs/open'.format(server)).json()
+            response = requests.get('http://{}/jobs/open'.format(server), timeout=1).json()
             if 'message' not in response:
                 for job in response:
                     # Avoid adding two copies of the same job from different servers
