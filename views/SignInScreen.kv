@@ -4,30 +4,25 @@
             halign: "center"
             text: 'Please enter a delegate private key associated with one of your Rein identities.'
 
-        BoxLayout:
-            size_hint_y: None
-            spacing: 10
-        	orientation: 'horizontal'
+    	CustomLabel:
+    		text: 'Private key: '
 
-        	CustomLabel:
-        		text: 'Private key: '
-                halign: 'right'
+    	CustomInput:
+    		id: delprivkey
+    		hint_text: 'Delegate private key'
 
-        	CustomInput:
-        		id: delprivkey
-        		hint_text: 'Delegate private key'
-
-        	CustomButton:
-        		text: 'Import identity'
-        		on_press:
-        			from functionality.sign_in import import_identity
-        			import_identity(delprivkey.text, identity_feedback, app.sm)
+    	CustomButton:
+    		text: 'Import identity'
+    		on_press:
+    			from functionality.sign_in import import_identity
+    			import_identity(delprivkey.text, identity_feedback, app.sm)
 
     	CustomLabel:
-            size_hint_y: 1
             halign: "center"
             id: identity_feedback
 
         CustomHeader:
+            halign: "center"
+            size_hint_y: 1
             id: alertHeader
             text: ''

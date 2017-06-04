@@ -1,34 +1,26 @@
 <JobScreen>:
     CustomBackground:
-        BoxLayout:
-            size_hint_y: None
-            height: "24pt"
-            orientation: 'horizontal'
+        CustomHeader:
+            text: 'Job name'
 
-            CustomLabel:
-                text: 'Job name: '
+        CustomLabel:
+            id: job_name
+            text: ''
 
-            CustomLabel:
-                id: job_name
-                halign: 'left'
-                text: ''
+        CustomHeader:
+            text: 'Job status'
 
-        BoxLayout:
-            size_hint_y: None
-            height: "24pt"
-            orientation: 'horizontal'
+        CustomLabel:
+            id: job_status
+            text: ''
 
-            CustomLabel:
-                text: 'Job status: '
+        CustomButton:
+            text: 'Go back'
+            on_press:
+                app.sm.current = 'MainScreen'
 
-            CustomLabel:
-                id: job_status
-                halign: 'left'
-                text: ''
-
-        AnchorLayout:
-            CustomButton:
-                size_hint_x: None
-                text: 'Go back'
-                on_press:
-                    app.sm.current = 'MainScreen'
+        CustomHeader:
+            halign: "center"
+            size_hint_y: 1
+            id: alertHeader
+            text: ''

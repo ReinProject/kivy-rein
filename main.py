@@ -52,8 +52,6 @@ class ReinAndroidApp(App):
         
         if not server_available:
             current_screen = self.sm.get_screen(self.sm.current)
-            print(current_screen)
-            print(current_screen.ids)
             current_screen.ids['alertHeader'].text = 'No server is currently reachable'
 
     	return self.sm
