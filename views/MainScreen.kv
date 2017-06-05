@@ -61,6 +61,12 @@
                 orientation: 'vertical'
                 spacing: dp(2)
 
+        CustomButton:
+            text: 'Forget identity'
+            on_press:
+                Setting.delete('delprivkey')
+                app.sm.current = 'SignInScreen'
+
         CustomHeader:
             halign: "center"
             size_hint_y: 1

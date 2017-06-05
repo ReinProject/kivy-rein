@@ -42,3 +42,9 @@ class Setting(BASE):
 
         return setting_in_db.setting_value
 
+    @staticmethod
+    def delete(setting_name):
+        """Removes a setting from the database"""
+
+        setting_in_db = DATABASE.session.query(Setting).filter(Setting.setting_name == setting_name).delete()
+        DATABASE.session.commit()
