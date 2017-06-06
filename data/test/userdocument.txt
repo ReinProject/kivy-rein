@@ -1,0 +1,23 @@
+{
+	'name': 'TestName',
+	'contact': {
+		'login': 'TestName', 
+		'email': ''
+	},
+	'bitcoin': {
+		'master_address': '', 
+		'delegate_address': '1UJn24Phv4Uv4obZy5TatZK5vph3epn2e'
+	},
+	'mediator': {
+		'status': '', 
+		'fee': '', 
+		'key': ''
+	},
+	'validity': {
+		'sin': 'TestSin', 
+		'signature': '', 
+		'signature_address': ''
+	}
+}
+
+Delegate private key: 5Jvfzb5UEmadBc7AT5wdE94851keWtsCQT5Js9s2rQN6KmT7v25
