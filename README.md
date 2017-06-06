@@ -16,7 +16,7 @@ Firstly, clone this repository. Follow the official kivy documentation linked ab
 
 You should now be able to launch the application by running main.py.
 
-To properly test the functionality you will have to run a local causeway-v2 server. Clone the most recent version of the repo found [here](https://github.com/FreakJoe/causeway-v2), and install all necessary repositories.
+To properly test the functionality you will have to run a local causeway-v2 server. Clone the most recent version of the repo found [here](https://github.com/FreakJoe/causeway-v2), and install all necessary prerequisites.
 
 Next, you will have to run a local MongoDB server. You can find an installation guide and further help for MongoDB [here](https://www.mongodb.com).
 
