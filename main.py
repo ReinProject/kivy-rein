@@ -52,7 +52,7 @@ class ReinAndroidApp(App):
             self.sm.current = 'MainScreen'
             set_user_job_data(self.sm)
 
-        self.set_status_bar_colour()
+        #self.set_status_bar_colour()
         self.available_servers_feedback()
 
     def available_servers_feedback(self):
@@ -70,18 +70,27 @@ class ReinAndroidApp(App):
             current_screen.ids['alertHeader'].text = 'No server is currently reachable'
 
     def set_status_bar_colour(self):
+        """Dysfunctional due to https://github.com/kivy/pyjnius/issues/278"""
+
         try:
             # Turn status bar green
             from jnius import autoclass
+            from jnius.jnius import JavaException
 
-            WindowManager = autoclass('android.view.WindowManager')
+            #try:
+            LayoutParams = autoclass('android.view.WindowManager$LayoutParams')
             R = autoclass('android.R')
-            activity = autoclass('org.rein_project.rein.PythonActivity').mActivity
+            activity = autoclass('org.kivy.android.PythonActivity').mActivity
 
             window = activity.getWindow()
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            LayoutParams = window.getAttributes()
+            window.clearFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.addFlags(LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.setStatusBarColor(activity.getResources().getColor(R.color.holo_green_light))
+
+           #except JavaException as ex:
+                # Insufficient SDK version
+                #pass
 
         except ImportError:
             # Not on Android
