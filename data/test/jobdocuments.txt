@@ -1,0 +1,68 @@
+[
+{
+    'name': 'Active job 1',
+    'worker': {
+        'public_key': '0473faa80f846e08232687ccc4466063af375109bb08bb3ef48089b0fe85268a2b2752833abfb4542bb0cced8cfabb6b65428c9b828f37622898b45dc6839377e3'
+    },
+    'bid': {},
+    'offer': {},
+    'time': {'expires_at': 2495200706.922}
+},
+
+{
+    'name': 'Active job 3 name sooooooooooooooooooooooooooooooooo loooooooooong',
+    'worker': {
+        'public_key': '0473faa80f846e08232687ccc4466063af375109bb08bb3ef48089b0fe85268a2b2752833abfb4542bb0cced8cfabb6b65428c9b828f37622898b45dc6839377e3'
+    },
+    'bid': {},
+    'offer': {},
+    'time': {'expires_at': 2495200706.922}
+},
+
+{
+    'name': 'Completed job 1',
+    'worker': {
+        'public_key': '0473faa80f846e08232687ccc4466063af375109bb08bb3ef48089b0fe85268a2b2752833abfb4542bb0cced8cfabb6b65428c9b828f37622898b45dc6839377e3'
+    },
+    'bid': {},
+    'offer': {},
+    'deliveries': {},
+    'delivery_accepted': {},
+    'time': {'expires_at': 2495200706.922}
+},
+
+{
+    'name': 'Active job 2',
+    'worker': {
+        'public_key': '0473faa80f846e08232687ccc4466063af375109bb08bb3ef48089b0fe85268a2b2752833abfb4542bb0cced8cfabb6b65428c9b828f37622898b45dc6839377e3'
+    },
+    'bid': {},
+    'offer': {},
+    'deliveries': {},
+    'dispute': {},
+    'time': {'expires_at': 2495200706.922}
+},
+
+{
+    'name': 'Completed job 2',
+    'worker': {
+        'public_key': '0473faa80f846e08232687ccc4466063af375109bb08bb3ef48089b0fe85268a2b2752833abfb4542bb0cced8cfabb6b65428c9b828f37622898b45dc6839377e3'
+    },
+    'bid': {},
+    'offer': {},
+    'deliveries': {},
+    'dispute': {'resolution': {}},
+    'time': {'expires_at': 2495200706.922}
+},
+
+{
+    'name': 'Bid-only job 1',
+    'bid': {},
+    'time': {'expires_at': 2495200706.922}
+},
+
+{
+    'name': 'Bid-only job 2',
+    'bid': {},
+    'time': {'expires_at': 2495200706.922}
+}]

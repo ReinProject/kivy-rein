@@ -1,0 +1,26 @@
+<JobScreen>:
+    CustomBackground:
+        CustomHeader:
+            text: 'Job name'
+
+        CustomLabel:
+            id: job_name
+            text: ''
+
+        CustomHeader:
+            text: 'Job status'
+
+        CustomLabel:
+            id: job_status
+            text: ''
+
+        CustomButton:
+            text: 'Go back'
+            on_press:
+                app.sm.current = 'MainScreen'
+
+        CustomHeader:
+            halign: "center"
+            size_hint_y: 1
+            id: alertHeader
+            text: ''
