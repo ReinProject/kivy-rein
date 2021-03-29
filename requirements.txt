@@ -9,7 +9,7 @@ Kivy-Garden==0.1.4
 packaging==16.8
 pybitcointools==1.1.15
 pygame==1.9.3
-Pygments==2.2.0
+Pygments==2.7.4
 pyparsing==2.2.0
 requests==2.20.0
 sh==1.12.13
